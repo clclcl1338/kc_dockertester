@@ -33,6 +33,7 @@ This is a Dockerized API tester that validates login credentials and checks for 
     USERNAME=my-user
     PASSWORD=my-password
     REALM_NAME=my-realm
+    SECRET=your-client-secret
     ```
 
     **Note:** If your Keycloak instance is running in Docker, you might need to use the Docker host IP address instead of `localhost`. On most systems, you can use `host.docker.internal` for the `KEYCLOAK_URL`. For example:
@@ -108,7 +109,7 @@ This section provides a guide on how to test the API tester with a Keycloak 25.0
 
 ### `/auth`
 
-*   **Method:** `POST`
+*   **Method:** `GET`
 *   **Description:** Authenticates with Keycloak and returns a bearer token.
 *   **Success Response:**
 
