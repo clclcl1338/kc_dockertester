@@ -23,6 +23,7 @@ def get_token():
                 "username": USERNAME,
                 "password": PASSWORD,
                 "grant_type": "password",
+                "client_secret": os.getenv("SECRET")
             },
         )
         response.raise_for_status()
@@ -31,7 +32,7 @@ def get_token():
         print(f"Error getting token: {e}")
         return None
 
-@app.route("/auth", methods=["POST"])
+@app.route("/auth", methods=["GET"])
 def auth():
     """Authenticate with Keycloak and return a token."""
     token = get_token()
